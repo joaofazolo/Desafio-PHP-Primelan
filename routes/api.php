@@ -17,12 +17,15 @@ Route::get('/', function() {
     return app()->version();
 });
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/people', 'PeopleController@create');
 
-Route::post('/people', 'PeopleController@store');
+Route::get('/people/{person}', 'PeopleController@retrieve');
 
-Route::get('/people/{id}', 'PeopleController@buscar');
+Route::delete('/people/{person}', 'PeopleController@delete');
+
+Route::get('/people','PeopleController@getall');
+
+Route::put('/people/{person}','PeopleController@update');
+
 
 

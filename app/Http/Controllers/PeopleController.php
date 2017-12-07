@@ -6,16 +6,36 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
 
+use \App\Person;
+
 class PeopleController extends Controller
 {
-    public function store (Request $request) {
-        $person = new \App\Person($request->all());
+    public function create (Request $request) {
+        $person = new Person($request->all());
         $person->save();
-        return response()->json($person, \Illuminate\Http\Response::HTTP_OK);
+
+        return response()->json($person, \Illuminate\Http\Response::HTTP_CREATED);
     }
 
-    public function buscar (Request $request) {
-        $person = \App\Person::find(1);
+    public function retrieve (Person $person) {
+
         return response()->json($person,\Illuminate\Http\Response::HTTP_OK);
+    }
+
+    public function delete (Person $person) {
+        $person->delete();
+
+        return response()->json(null,\Illuminate\Http\Response::HTTP_NO_CONTENT);
+    }
+
+    public function getall() {
+
+        return Person::all();
+    }
+
+    public function update(Request $request, Person $person){
+        $person->update($request->all());
+
+        return response()->json($person, 200);
     }
 }
