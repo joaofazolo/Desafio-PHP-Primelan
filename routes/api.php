@@ -13,9 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function() {
-    return app()->version();
+
+Route::any('/', function() {
+    return view('index');
 });
+
 
 Route::post('/people', 'PeopleController@create');
 
