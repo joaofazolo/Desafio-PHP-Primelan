@@ -5,17 +5,17 @@ API REST para gerenciamento de pessoas.
 
 #Rotas
 
-#GET /api
+#GET /
 Retorna em JSON a lista de pessoas.
 
-#GET /api/people/{person}
+#GET /people/{person}
 Retorna JSON de uma pessoa.
 
-#POST /api/people
+#POST /people
 Cria uma pessoa.
 
-#DELETE /api/people/{person}
+#DELETE /people/{person}
 Delete uma pessoa
 
-#PUT /api/people/{person}
+#PUT /people/{person}
 Modifica uma pessoa
