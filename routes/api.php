@@ -18,7 +18,6 @@ Route::any('/', function() {
     return view('index');
 });
 
-
 Route::post('/people', 'PeopleController@create');
 
 Route::get('/people/{person}', 'PeopleController@retrieve');
